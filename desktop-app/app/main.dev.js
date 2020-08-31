@@ -32,6 +32,7 @@ import installExtension, {
 import fs from 'fs';
 import MenuBuilder from './menu';
 import {USER_PREFERENCES} from './constants/settingKeys';
+import {SYSTEM_THEME} from './constants/theme';
 import {migrateDeviceSchema} from './settings/migration';
 import {DEVTOOLS_MODES} from './constants/previewerLayouts';
 import {initMainShortcutManager} from './shortcut-manager/main-shortcut-manager';
@@ -197,6 +198,11 @@ app.on('activate', async (event, hasVisibleWindows) => {
 app.on('ready', async () => {
   if (hasActiveWindow) {
     return;
+  }
+  // Set theme based on user preference
+  const themeSource = (settings.get(USER_PREFERENCES) || {}).theme;
+  if (themeSource) {
+    nativeTheme.themeSource = themeSource;
   }
   await createWindow();
 });
@@ -468,7 +474,7 @@ const createWindow = async () => {
   });
 
   ipcMain.on('prefers-color-scheme-select', (event, scheme) => {
-    nativeTheme.themeSource = scheme || 'system';
+    nativeTheme.themeSource = scheme || SYSTEM_THEME;
   });
 
   ipcMain.handle('install-extension', (event, extensionId) => {

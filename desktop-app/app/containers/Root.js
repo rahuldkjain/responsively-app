@@ -1,16 +1,12 @@
-// @flow
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {ConnectedRouter} from 'connected-react-router';
 import log from 'electron-log';
-import {createMuiTheme, makeStyles} from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
-import {grey} from '@material-ui/core/colors';
 import Routes from '../Routes';
-import type {Store} from '../reducers/types';
-import {themeColor} from '../constants/colors';
 import ErrorBoundary from '../components/ErrorBoundary';
-
+import useCreateTheme from '../components/useCreateTheme';
 import {
   registerShortcut,
   clearAllShortcuts,
@@ -31,48 +27,27 @@ import {
 } from '../actions/browser';
 import {toggleBookmarkUrl} from '../actions/bookmarks';
 
-type Props = {
-  store: Store,
-  history: {},
-};
+function App({history}) {
+  const theme = useCreateTheme();
 
-const theme = createMuiTheme({
-  palette: {
-    type: 'dark',
-    primary: {
-      main: themeColor,
-    },
-    secondary: {
-      main: '#424242',
-    },
-    ternary: {
-      main: '#C4C5CE',
-    },
-    divider: grey[500],
-    background: {
-      main: '#252526',
-    },
-  },
-});
-
-const getApp = history => {
-  if (process.env.NODE_ENV !== 'development') {
-    return (
-      <ErrorBoundary>
+  return (
+    <ThemeProvider theme={theme}>
+      {process.env.NODE_ENV !== 'development' ? (
+        <ErrorBoundary>
+          <ConnectedRouter history={history}>
+            <Routes />
+          </ConnectedRouter>
+        </ErrorBoundary>
+      ) : (
         <ConnectedRouter history={history}>
           <Routes />
         </ConnectedRouter>
-      </ErrorBoundary>
-    );
-  }
-  return (
-    <ConnectedRouter history={history}>
-      <Routes />
-    </ConnectedRouter>
+      )}
+    </ThemeProvider>
   );
-};
+}
 
-export default class Root extends Component<Props> {
+export default class Root extends Component {
   componentDidMount() {
     this.registerAllShortcuts();
   }
@@ -243,7 +218,7 @@ export default class Root extends Component<Props> {
     const {store, history} = this.props;
     return (
       <Provider store={store}>
-        <ThemeProvider theme={theme}>{getApp(history)}</ThemeProvider>
+        <App history={history} />
       </Provider>
     );
   }

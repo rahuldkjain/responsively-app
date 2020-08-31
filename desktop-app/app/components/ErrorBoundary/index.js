@@ -1,9 +1,10 @@
 import React from 'react';
+import {withStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import TextAreaWithCopyButton from '../../utils/TextAreaWithCopyButton';
 import CreateIssue from '../CreateIssue';
-import {withStyles} from '@material-ui/core/styles';
 
-const styles = {
+const styles = theme => ({
   errorBoundaryContainer: {
     overflowY: 'auto',
     display: 'flex',
@@ -13,6 +14,9 @@ const styles = {
     '& h1': {
       textAlign: 'center',
     },
+  },
+  title: {
+    color: theme.palette.text.primary,
   },
   errorsContainer: {
     display: 'flex',
@@ -24,7 +28,7 @@ const styles = {
     margin: '3rem 6rem',
     width: '30vw',
   },
-};
+});
 
 class ErrorBoundary extends React.Component {
   static getDerivedStateFromError(error) {
@@ -58,14 +62,22 @@ class ErrorBoundary extends React.Component {
       // You can render any custom fallback UI
       return (
         <div className={classes.errorBoundaryContainer}>
-          <h1>😓 App has crashed!</h1>
+          <h1 className={classes.title}>😓 App has crashed!</h1>
           <div className={classes.errorsContainer}>
-            <p className={classes.errorContainer}>
+            <Typography
+              variant="body1"
+              color="textPrimary"
+              className={classes.errorContainer}
+            >
               Stack Trace: <TextAreaWithCopyButton text={this.state.error} />
-            </p>
-            <p className={classes.errorContainer}>
+            </Typography>
+            <Typography
+              variant="body1"
+              color="textPrimary"
+              className={classes.errorContainer}
+            >
               Error Info: <TextAreaWithCopyButton text={this.state.errorInfo} />
-            </p>
+            </Typography>
           </div>
           <CreateIssue state={this.state} />
         </div>
