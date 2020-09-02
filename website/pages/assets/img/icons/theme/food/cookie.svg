@@ -1,10 +1,1 @@
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Icon For Cookie</title>
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect opacity="0" x="0" y="0" width="24" height="24"></rect>
-        <polygon fill="#000000" opacity="0.3" points="12 20.6599888 9.46440699 20.6354368 7.31805655 19.2852462 5.19825383 17.8937466 4.12259707 15.5974894 3.09160702 13.2808335 3.42815736 10.7675551 3.81331204 8.26126488 5.45521712 6.32891335 7.13423264 4.4287182 9.5601992 3.69080156 12 3 14.4398008 3.69080156 16.8657674 4.4287182 18.5447829 6.32891335 20.186688 8.26126488 20.5718426 10.7675551 20.908393 13.2808335 19.8774029 15.5974894 18.8017462 17.8937466 16.6819434 19.2852462 14.535593 20.6354368"></polygon>
-        <circle fill="#000000" opacity="0.3" cx="8.5" cy="13.5" r="1.5"></circle>
-        <circle fill="#000000" opacity="0.3" cx="13.5" cy="7.5" r="1.5"></circle>
-        <circle fill="#000000" opacity="0.3" cx="14.5" cy="15.5" r="1.5"></circle>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" version="1.1" viewBox="0 0 24 24"><title>Icon For Cookie</title><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><rect width="24" height="24" x="0" y="0" opacity="0"/><polygon fill="#000" points="12 20.66 9.464 20.635 7.318 19.285 5.198 17.894 4.123 15.597 3.092 13.281 3.428 10.768 3.813 8.261 5.455 6.329 7.134 4.429 9.56 3.691 12 3 14.44 3.691 16.866 4.429 18.545 6.329 20.187 8.261 20.572 10.768 20.908 13.281 19.877 15.597 18.802 17.894 16.682 19.285 14.536 20.635" opacity=".3"/><circle cx="8.5" cy="13.5" r="1.5" fill="#000" opacity=".3"/><circle cx="13.5" cy="7.5" r="1.5" fill="#000" opacity=".3"/><circle cx="14.5" cy="15.5" r="1.5" fill="#000" opacity=".3"/></g></svg>

@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <rect class="bg-background" x="0" y="0" height="120" width="120" style="fill: none; stroke: white; stroke-width: 5px;" />
-  <g>
-    <rect class="text__i" x="27" y="34" height="52" width="12" />
-    <rect class="text__h" x="51" y="34" height="52" width="12" />
-    <rect class="text__h" x="61" y="54" height="12" width="22" />
-    <rect class="text__h" x="81" y="34" height="52" width="12" />
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" x="0" y="0" class="bg-background" style="fill:none;stroke:#fff;stroke-width:5px"/><g><rect width="12" height="52" x="27" y="34" class="text__i"/><rect width="12" height="52" x="51" y="34" class="text__h"/><rect width="22" height="12" x="61" y="54" class="text__h"/><rect width="12" height="52" x="81" y="34" class="text__h"/></g></svg>
